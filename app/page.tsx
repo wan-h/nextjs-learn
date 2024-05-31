@@ -1,8 +1,14 @@
+/**
+ * 该文件是整个网站的入口文件。app/page.tsx
+ */
+
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { lusitana } from './ui/fonts';
 import Image from 'next/image';
+// 除了使用tailwind外也可以这样直接引入css文件然后使用里面的样式
+import styles from '@/app/ui/home.module.css'
 
 export default function Page() {
   return (
@@ -12,7 +18,8 @@ export default function Page() {
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-        <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"/>
+          {/* 这里h-0 w-0表示content不显示，宽高都为0，但是边框做了设置，左右边框是透明的，下边框是黑色，从而就形成了一个三角形 */}
+          <div className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent" />
           <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Welcome to Acme.</strong> This is the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
@@ -28,6 +35,7 @@ export default function Page() {
           </Link>
         </div>
         <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
+          {/* 这里使用next/image中的Image，是对<image/>的优化，避免手动再去实现尺寸变换和懒加载等 */}
           <Image
             src="/hero-desktop.png"
             width={1000}

@@ -4,6 +4,7 @@ import clsx from 'clsx';
 export default function InvoiceStatus({ status }: { status: string }) {
   return (
     <span
+      // 这里的clsc可以方便的转换classname然后控制样式
       className={clsx(
         'inline-flex items-center rounded-full px-2 py-1 text-xs',
         {

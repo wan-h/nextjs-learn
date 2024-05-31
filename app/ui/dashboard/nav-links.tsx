@@ -1,3 +1,4 @@
+// 标志该组件是一个Clinet Component，即在浏览器中运行的组件
 'use client';
 
 import {
@@ -22,12 +23,14 @@ const links = [
 ];
 
 export default function NavLinks() {
+  // usePathname获取当前页面的路径。比如：/dashboard/invoices
   const pathname = usePathname();
   return (
     <>
       {links.map((link) => {
         const LinkIcon = link.icon;
         return (
+          // 这里的Link是Next对<a/>的优化：Automatic code-splitting and prefetching
           <Link
             key={link.name}
             href={link.href}

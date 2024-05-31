@@ -1,5 +1,8 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
+
+// 该文件主要mock了数据，用来填充数据库的
+
 const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
